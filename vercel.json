@@ -1,12 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/school/:path*",
-      "destination": "https://synzy-school.vercel.app/:path*"
-    },
-    {
-      "source": "/college/:path*",
-      "destination": "https://synzy-college.vercel.app/:path*"
+      "source": "/school",
+      "destination": "https://synzy-school.vercel.app"
     }
   ]
 }
