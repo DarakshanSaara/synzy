@@ -149,14 +149,14 @@ const SynzyHome = () => {
             href="https://synzy-school.vercel.app/"
             className="px-4 py-2 bg-white border-2 border-gray-900 text-gray-600 rounded-lg hover:bg-gray-50 transition font-medium"
           >
-            School Login
+            School Portal
           </a>
           <a
             href="https://synzy-college.vercel.app/"
             className="px-4 py-2 text-gray-900 rounded-lg hover:bg-yellow-400 transition font-medium"
             style={{ backgroundColor: '#fae96d' }}
           >
-            College Login
+            College Portal
           </a>
         </nav>
         
@@ -189,10 +189,10 @@ const SynzyHome = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <button onClick={() => window.location.href = "https://synzy-school.vercel.app/"} className="px-8 py-3 bg-gray-900 text-gray-900 rounded-lg hover:bg-gray-800 transition font-medium flex items-center justify-center gap-2 text-lg">
-              Register as School
+              Go to School Portal
             </button>
             <button onClick={() => window.location.href = "https://synzy-college.vercel.app/"} className="px-8 py-3 bg-white text-gray-900 border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition font-medium flex items-center justify-center gap-2 text-lg">
-              Register as College
+              Go to College Portal
             </button>
           </div>
 
@@ -321,10 +321,10 @@ const SynzyHome = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => window.location.href = "https://synzy-school.vercel.app/"} className="px-8 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition font-medium">
-              Register Your School
+              Go to School Portal
             </button>
             <button onClick={() => window.location.href = "https://synzy-college.vercel.app/"} className="px-8 py-3 border-2 border-white text-gray-900 rounded-lg hover:bg-white/10 transition font-medium">
-              Register Your College
+              Go to College Portal
             </button>
           </div>
         </section>
