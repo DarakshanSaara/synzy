@@ -7,12 +7,21 @@ import {
   Globe2, 
   CheckCircle2,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
+  ArrowLeft,
   GraduationCap,
   Building2,
   Sparkles,
-  Menu
+  Menu,
+  Brain,
+  Rocket,
+  Users,
+  TrendingUp,
+  MapPin,
+  Award,
+  School,
+  Library,
+  ArrowRightCircle,
+  ArrowLeftCircle
 } from 'lucide-react';
 
 const SynzyHome = () => {
@@ -53,40 +62,79 @@ const SynzyHome = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const cards = [
-    { icon: <Sparkles className="w-8 h-8" />, title: "AI-Powered Matching", desc: "Our advanced AI algorithms analyze preferences, performance, and requirements to create perfect matches between students and institutions." },
-    { icon: <Zap className="w-8 h-8" />, title: "Smart Discovery", desc: "Intelligent search and filtering system that helps students discover schools and colleges based on their unique needs and aspirations." },
-    { icon: <Target className="w-8 h-8" />, title: "Precision Targeting", desc: "Help your institution reach the right students with data-driven insights and targeted outreach capabilities." },
-    { icon: <BarChart3 className="w-8 h-8" />, title: "Analytics Dashboard", desc: "Comprehensive analytics and insights to track engagement, applications, and optimize your institution's profile." },
-    { icon: <Globe2 className="w-8 h-8" />, title: "Pan-India Reach", desc: "Connect with students and institutions across India on a single unified platform, expanding your reach exponentially." },
-    { icon: <CheckCircle2 className="w-8 h-8" />, title: "Verified Profiles", desc: "All institutions undergo thorough verification ensuring authentic and trustworthy connections for students and parents." }
+    { 
+      icon: <Brain className="w-10 h-10 text-purple-600" />, 
+      title: "AI-Powered Matching", 
+      desc: "Our advanced AI algorithms analyze preferences, performance, and requirements to create perfect matches between students and institutions.",
+      color: "purple"
+    },
+    { 
+      icon: <Rocket className="w-10 h-10 text-blue-600" />, 
+      title: "Smart Discovery", 
+      desc: "Intelligent search and filtering system that helps students discover schools and colleges based on their unique needs and aspirations.",
+      color: "blue"
+    },
+    { 
+      icon: <Target className="w-10 h-10 text-red-600" />, 
+      title: "Precision Targeting", 
+      desc: "Help your institution reach the right students with data-driven insights and targeted outreach capabilities.",
+      color: "red"
+    },
+    { 
+      icon: <TrendingUp className="w-10 h-10 text-green-600" />, 
+      title: "Analytics Dashboard", 
+      desc: "Comprehensive analytics and insights to track engagement, applications, and optimize your institution's profile.",
+      color: "green"
+    },
+    { 
+      icon: <MapPin className="w-10 h-10 text-orange-600" />, 
+      title: "Pan-India Reach", 
+      desc: "Connect with students and institutions across India on a single unified platform, expanding your reach exponentially.",
+      color: "orange"
+    },
+    { 
+      icon: <Award className="w-10 h-10 text-indigo-600" />, 
+      title: "Verified Profiles", 
+      desc: "All institutions undergo thorough verification ensuring authentic and trustworthy connections for students and parents.",
+      color: "indigo"
+    }
   ];
 
   const steps = [
     {
-      icon: <Building2 className="w-12 h-12 text-gray-700" />,
+      icon: <Building2 className="w-16 h-16 text-blue-600" />,
       step: "STEP 1",
       title: "Register Your Institution",
       desc: "Create your school or college profile with detailed information about programs, facilities, achievements, and admission criteria."
     },
     {
-      icon: <Sparkles className="w-12 h-12 text-gray-700" />,
+      icon: <Sparkles className="w-16 h-16 text-purple-600" />,
       step: "STEP 2",
       title: "AI Does the Magic",
       desc: "Our AI analyzes your profile and matches it with students based on their preferences, academic records, and career goals."
     },
     {
-      icon: <ArrowRight className="w-12 h-12 text-gray-700" />,
+      icon: <Rocket className="w-16 h-16 text-green-600" />,
       step: "STEP 3",
       title: "Connect & Grow",
       desc: "Receive qualified leads, manage applications, and grow your institution with the right students who are the perfect fit."
     }
   ];
 
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <div className="w-full bg-white font-sans">
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 px-6 py-3 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <GraduationCap className="w-8 h-8 text-gray-800" />
           <span className="text-xl font-bold text-gray-800">Synzy</span>
@@ -94,22 +142,22 @@ const SynzyHome = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-gray-600">
-          <a href="#" className="hover:text-gray-900">Features</a>
-          <a href="#" className="hover:text-gray-900">How It Works</a>
-          <a href="#" className="hover:text-gray-900">Testimonials</a>
+          <button onClick={() => scrollToSection('ai-technology')} className="hover:text-gray-900">Features</button>
+          <button onClick={() => scrollToSection('how-it-works')} className="hover:text-gray-900">How It Works</button>
+          <button onClick={() => scrollToSection('testimonials')} className="hover:text-gray-900">Testimonials</button>
           <a
-  href="https://synzy-school.vercel.app/"
-  className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition inline-block"
->
-  School Login
-</a>
-
-<a
-  href="https://synzy-college.vercel.app/"
-  className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition inline-block ml-4"
->
-  College Login
-</a>
+            href="https://synzy-school.vercel.app/"
+            className="px-4 py-2 bg-white border-2 border-gray-900 text-gray-600 rounded-lg hover:bg-gray-50 transition font-medium"
+          >
+            School Login
+          </a>
+          <a
+            href="https://synzy-college.vercel.app/"
+            className="px-4 py-2 text-gray-900 rounded-lg hover:bg-yellow-400 transition font-medium"
+            style={{ backgroundColor: '#fae96d' }}
+          >
+            College Login
+          </a>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -122,15 +170,16 @@ const SynzyHome = () => {
       <main className="pt-20">
         {/* AI Pill */}
         <div className="flex justify-center mt-8">
-          <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
-            <Sparkles className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
+               style={{ backgroundColor: '#fef9e7', color: '#92400e' }}>
+            <Sparkles className="w-4 h-4" style={{ color: '#fbbf24' }} />
             India's First AI-Powered Platform
           </div>
         </div>
 
         {/* Hero Section */}
         <section className="px-6 py-12 max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
             <span className="text-gray-900">Discover Your Perfect</span><br />
             <span className="text-gray-500">School & College</span>
           </h1>
@@ -139,10 +188,10 @@ const SynzyHome = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button className="px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition font-medium flex items-center justify-center gap-2">
+            <button onClick={() => window.location.href = "https://synzy-school.vercel.app/"} className="px-8 py-3 bg-gray-900 text-gray-900 rounded-lg hover:bg-gray-800 transition font-medium flex items-center justify-center gap-2 text-lg">
               Register as School
             </button>
-            <button className="px-8 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition font-medium flex items-center justify-center gap-2">
+            <button onClick={() => window.location.href = "https://synzy-college.vercel.app/"} className="px-8 py-3 bg-white text-gray-900 border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition font-medium flex items-center justify-center gap-2 text-lg">
               Register as College
             </button>
           </div>
@@ -169,8 +218,8 @@ const SynzyHome = () => {
         </section>
 
         {/* AI Technology Section */}
-        <section className="px-6 py-16 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">Powered by Advanced AI Technology</h2>
+        <section id="ai-technology" className="px-6 py-16 max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-3">Powered by Advanced AI Technology</h2>
           <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
             Leverage cutting-edge artificial intelligence to make smarter education decisions
           </p>
@@ -180,71 +229,87 @@ const SynzyHome = () => {
             {cards.map((card, idx) => (
               <div 
                 key={idx} 
-                className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
+                className="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group"
+                style={{ 
+                  borderColor: hoveredCard === idx ? '#fae96d' : '#e5e7eb',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={() => setHoveredCard(idx)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="text-gray-700 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   {card.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
+                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* How It Works Section - Light Grey */}
-        <section className="bg-gray-50 px-6 py-16">
+        {/* How It Works Section - Light Grey - Full Width */}
+        <section id="how-it-works" className="bg-gray-50 px-6 py-16 w-full">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-3">How Synzy Works</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-3">How Synzy Works</h2>
             <p className="text-gray-500 text-center mb-12">Simple, smart, and effective in three steps</p>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {steps.map((step, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 bg-white rounded-full shadow-sm">
-                      {step.icon}
+                <React.Fragment key={idx}>
+                  <div className="text-center flex-1">
+                    <div className="flex justify-center mb-4">
+                      <div className="p-6 bg-white rounded-full shadow-lg">
+                        {step.icon}
+                      </div>
                     </div>
+                    <div className="text-sm font-semibold text-gray-500 mb-2">{step.step}</div>
+                    <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                    <p className="text-gray-500 text-base leading-relaxed max-w-xs mx-auto">{step.desc}</p>
                   </div>
-                  <div className="text-sm font-semibold text-gray-500 mb-2">{step.step}</div>
-                  <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
-                </div>
+                  {idx < 2 && (
+                    <div className="hidden md:block">
+                      <ArrowRightCircle className="w-12 h-12 text-gray-400" />
+                    </div>
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section className="px-6 py-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3">Trusted by Educators Nationwide</h2>
+        <section id="testimonials" className="px-6 py-16 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-3">Trusted by Educators Nationwide</h2>
           <p className="text-gray-500 text-center mb-12">See what schools and colleges are saying about Synzy</p>
 
           {/* Testimonial Card */}
-          <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg relative">
+          <div className="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg relative">
             <div className="min-h-[200px] flex items-center">
               <div className="text-center md:text-left">
                 <p className="text-gray-600 text-lg italic mb-6">"{testimonials[currentTestimonial].quote}"</p>
                 <div>
-                  <p className="font-semibold text-gray-900">{testimonials[currentTestimonial].name}</p>
+                  <p className="font-semibold text-gray-900 text-lg">{testimonials[currentTestimonial].name}</p>
                   <p className="text-gray-500 text-sm">{testimonials[currentTestimonial].title}</p>
                 </div>
               </div>
             </div>
             
-            {/* Navigation Arrows */}
-            <button 
-              onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white border border-gray-200 rounded-full shadow-md hover:bg-gray-50 transition"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button 
-              onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white border border-gray-200 rounded-full shadow-md hover:bg-gray-50 transition"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+            {/* Navigation Pills instead of arrows */}
+            <div className="flex justify-center gap-2 mt-6">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentTestimonial(idx)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    currentTestimonial === idx 
+                      ? 'bg-gray-900 text-gray-600' 
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {idx + 1}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -255,10 +320,10 @@ const SynzyHome = () => {
             Join thousands of institutions already using Synzy to connect with the right students
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition font-medium">
+            <button onClick={() => window.location.href = "https://synzy-school.vercel.app/"} className="px-8 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition font-medium">
               Register Your School
             </button>
-            <button className="px-8 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition font-medium">
+            <button onClick={() => window.location.href = "https://synzy-college.vercel.app/"} className="px-8 py-3 border-2 border-white text-gray-900 rounded-lg hover:bg-white/10 transition font-medium">
               Register Your College
             </button>
           </div>
@@ -284,10 +349,10 @@ const SynzyHome = () => {
                 <div>
                   <h4 className="font-semibold mb-3 text-gray-900">Quick Links</h4>
                   <ul className="space-y-2 text-sm text-gray-500">
-                    <li><a href="#" className="hover:text-gray-900">Features</a></li>
-                    <li><a href="#" className="hover:text-gray-900">How It Works</a></li>
-                    <li><a href="#" className="hover:text-gray-900">Testimonials</a></li>
-                    <li><a href="#" className="hover:text-gray-900">Get Started</a></li>
+                    <li><button onClick={() => scrollToSection('ai-technology')} className="hover:text-gray-900">Features</button></li>
+                    <li><button onClick={() => scrollToSection('how-it-works')} className="hover:text-gray-900">How It Works</button></li>
+                    <li><button onClick={() => scrollToSection('testimonials')} className="hover:text-gray-900">Testimonials</button></li>
+                    <li><button onClick={() => scrollToSection('hero')} className="hover:text-gray-900">Get Started</button></li>
                   </ul>
                 </div>
                 <div>
