@@ -320,10 +320,10 @@ const SynzyHome = () => {
             Join thousands of institutions already using Synzy to connect with the right students
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => window.location.href = "/school"} className="px-8 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition font-medium">
+            <button onClick={() => window.location.href = "https://synzy-school.vercel.app/"} className="px-8 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition font-medium">
               Register Your School
             </button>
-            <button onClick={() => window.location.href = "/college"} className="px-8 py-3 border-2 border-white text-gray-900 rounded-lg hover:bg-white/10 transition font-medium">
+            <button onClick={() => window.location.href = "https://synzy-college.vercel.app/"} className="px-8 py-3 border-2 border-white text-gray-900 rounded-lg hover:bg-white/10 transition font-medium">
               Register Your College
             </button>
           </div>

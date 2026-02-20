@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/school",
-      "destination": "https://synzy-school.vercel.app"
-    }
-  ]
-}
